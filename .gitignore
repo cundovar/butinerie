@@ -1,0 +1,156 @@
+# =====================================
+# GITIGNORE POUR PROJET WORDPRESS DOCKER
+# =====================================
+
+# Configuration Docker - Garder
+# docker-compose.yml ✓
+# Dockerfile ✓
+# setup-dev.sh ✓
+
+# =====================================
+# WORDPRESS CORE (NE PAS COMMITER)
+# =====================================
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-config-sample.php
+/wp-cron.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+
+
+
+# =====================================
+# UPLOADS - EXCLU (VOLUME DOCKER LOCAL)
+# =====================================
+wp-content/uploads/
+# MAIS on peut garder un dossier exemple si souhaité
+# !wp-content/uploads/exemple/
+
+# =====================================
+# CACHE ET TEMPORAIRES
+# =====================================
+wp-content/cache/
+wp-content/backup-*
+wp-content/ai1wm-backups/
+wp-content/updraft/
+wp-content/upgrade/
+wp-content/upgrade-temp-backup/
+
+# Caches des plugins
+wp-content/w3tc-config/
+wp-content/wpo-cache/
+wp-content/et-cache/
+
+# Logs
+wp-content/debug.log
+*.log
+wp-content/wflogs/
+
+# =====================================
+# PLUGINS ET THEMES (SYNCHRONISÉS)
+# =====================================
+# GARDER tous les plugins et thèmes pour la collaboration
+# wp-content/plugins/ ✓
+# wp-content/themes/ ✓
+# wp-content/mu-plugins/ ✓
+
+# Mais exclure les dossiers temporaires de plugins
+wp-content/plugins/*/cache/
+wp-content/themes/*/cache/
+
+# =====================================
+# SYSTÈME ET DÉVELOPPEMENT
+# =====================================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editors
+.vscode/
+.idea/
+*.sublime-*
+*.tmp
+*.temp
+
+# Node modules si présents
+node_modules/
+npm-debug.log*
+
+# =====================================
+# DOCKER ET ENVIRONNEMENT
+# =====================================
+# Variables d'environnement locales
+.env
+.env.local
+.env.*.local
+
+# Logs Docker
+docker-compose.override.yml
+
+# Volumes Docker (gérés automatiquement)
+# Les volumes sont dans Docker, pas besoin de les ignorer
+
+# =====================================
+# BASES DE DONNÉES
+# =====================================
+*.sql
+*.sql.gz
+*.sql.zip
+*.db
+*.sqlite
+
+# Sauvegardes
+*.backup
+*.bak
+*.zip
+*.tar.gz
+
+# =====================================
+# SÉCURITÉ
+# =====================================
+# Clés et certificats
+*.key
+*.pem
+*.crt
+*.cert
+
+# Fichiers de configuration sensibles
+.htpasswd
+auth.json
+
+# =====================================
+# SPÉCIFIQUE AU PROJET
+# =====================================
+# Fichiers temporaires de test
+test-*.txt
+test-*.php
+
+# Scripts personnels temporaires
+temp-*
+
+# Archives et exports
+exports/
+backups/

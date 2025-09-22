@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:6.8.2-apache
+    ports:
+      - "8080:80"
+    volumes:
+      # Synchronisation des fichiers pour le développement en équipe
+      - ./wp-content:/var/www/html/wp-content
+      # Uploads local - chaque dev indépendant
+      - uploads_data:/var/www/html/wp-content/uploads
+    environment:
+      # Configuration base de données Docker existante
+      - WORDPRESS_DB_HOST=mysql_db:3306
+      - WORDPRESS_DB_NAME=backup_db
+      - WORDPRESS_DB_USER=root
+      - WORDPRESS_DB_PASSWORD=rootpassword
+      # Configuration WordPress pour éviter les erreurs
+      - WORDPRESS_CONFIG_EXTRA=define('WP_HOME','http://localhost:8080'); define('WP_SITEURL','http://localhost:8080');
+    networks:
+      - sql_docker_mysql_network
+      - default
+    restart: unless-stopped
+
+volumes:
+  uploads_data:
+    driver: local
+
+networks:
+  sql_docker_mysql_network:
+    external: true
