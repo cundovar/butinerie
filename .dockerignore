@@ -1,0 +1,47 @@
+# WordPress core files - seront récupérés par l'image de base
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-cron.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+
+# Garder wp-config.php et .htaccess
+!wp-config.php
+!.htaccess
+
+# Fichiers de sauvegarde
+*.sql
+*.zip
+*.backup
+
+# Logs et caches
+*.log
+/wp-content/cache/
+/wp-content/uploads/cache/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+.git/
+.gitignore
+
+# Fichiers temporaires
+/tmp/
+*.tmp
+*.temp
+
+# Configurations locales Docker
+.env
+docker-compose.override.yml
