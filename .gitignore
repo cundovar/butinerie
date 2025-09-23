@@ -89,7 +89,7 @@ Desktop.ini
 *~
 
 # Editors
-.vscode/
+
 .idea/
 *.sublime-*
 *.tmp
