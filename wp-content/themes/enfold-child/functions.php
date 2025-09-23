@@ -1,4 +1,15 @@
 <?php
+/**
+ * Enfold Child Theme Functions
+ *
+ * @package WordPress
+ * @subpackage Enfold_Child
+ */
+
+// Sécurité : empêcher l'accès direct
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 
 
