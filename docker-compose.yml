@@ -12,14 +12,14 @@ services:
       - uploads_data:/var/www/html/wp-content/uploads
     environment:
       # Configuration base de données Docker existante
-      - WORDPRESS_DB_HOST=mysql_db:3306
+      - WORDPRESS_DB_HOST=mysql:3306
       - WORDPRESS_DB_NAME=backup_db
       - WORDPRESS_DB_USER=root
       - WORDPRESS_DB_PASSWORD=rootpassword
       # Configuration WordPress pour éviter les erreurs
       - WORDPRESS_CONFIG_EXTRA=define('WP_HOME','http://localhost:8080'); define('WP_SITEURL','http://localhost:8080');
     networks:
-      - sql_docker_mysql_network
+      - mysql_network
       - default
     restart: unless-stopped
 
@@ -28,5 +28,5 @@ volumes:
     driver: local
 
 networks:
-  sql_docker_mysql_network:
+  mysql_network:
     external: true
