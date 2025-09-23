@@ -1,11 +1,36 @@
 <?php
+/**
+ * Enfold Child Theme Functions
+ *
+ * @package WordPress
+ * @subpackage Enfold_Child
+ */
 
-
+// Sécurité : empêcher l'accès direct
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 /*
-* Add your own functions here. You can also copy some of the theme functions into this file. 
+* Add your own functions here. You can also copy some of the theme functions into this file.
 * Wordpress will use those functions instead of the original functions then.
 */
+
+/**
+ * Enregistrer et charger les styles du thème enfant
+ */
+function enfold_child_enqueue_styles() {
+    // Charger le style du thème parent
+    wp_enqueue_style('enfold-parent-style', get_template_directory_uri() . '/style.css');
+
+    // Charger le style du thème enfant
+    wp_enqueue_style('enfold-child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('enfold-parent-style'), // Dépendance au style parent
+        wp_get_theme()->get('Version') // Version pour le cache
+    );
+}
+add_action('wp_enqueue_scripts', 'enfold_child_enqueue_styles');
 
 /* Autoriser les fichiers SVG */
 function wpc_mime_types($mimes) {

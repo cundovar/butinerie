@@ -6,3 +6,14 @@ Author: Kriesi
 Author URI: http://www.kriesi.at
 Template: enfold
 */
+
+.avia-menu-text {
+    color: #6f14e6 !important;
+    font-weight: bold !important;  
+    font-size: 80px !important;
+}
+    
+.avia-menu-text:hover {
+    color: #0df105 !important;
+}
+    
