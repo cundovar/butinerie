@@ -27,6 +27,7 @@ volumes:
   uploads_data:
     driver: local
 
+
 networks:
   mysql_network:
     external: true
